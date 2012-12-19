@@ -1,0 +1,9 @@
+#!/bin/bash
+
+user=$1
+
+if [ -z $user ]; then
+    user=$USER
+fi
+
+/usr/bin/ldapsearch -H ldaps://ldap.rutgers.edu:636 -x -D "uid=$USER,ou=people,dc=rutgers,dc=edu" -W -b "ou=people,dc=rutgers,dc=edu" "(uid=$USER)" rulinkRutgersEduStudentGpaCum
